@@ -17,7 +17,6 @@ const ResetPassword = () => {
   const {
     register,
     handleSubmit,
-    control,
     formState: { errors, isSubmitting },
   } = useForm({
     resolver: yupResolver(resetPasswordScchema),
