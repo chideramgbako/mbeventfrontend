@@ -22,14 +22,14 @@ const ForgotPassword = () => {
     // console.log(data);
     try {
       const result = await axios.post(url, data);
-      if(result.status === 200){
-        toast.success("password reset Link sent to your mail",{
-          position: "top-center"
-        })
+      if (result.status === 200) {
+        toast.success("password reset Link sent to your mail", {
+          position: "top-center",
+        });
       }
     } catch (error) {
       console.log(error);
-      
+
       // console.log(error?.response?.data?.message);
       toast.error(error?.response?.data?.message || error?.message, {
         position: "top-center",
