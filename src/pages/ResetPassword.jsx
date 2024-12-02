@@ -33,6 +33,7 @@ const ResetPassword = () => {
     if (token) {
       const newPassword = data.password;
       console.log(newPassword, token);
+      const body = { newPassword, token };
 
       try {
         const result = await axios.post(url, body);
