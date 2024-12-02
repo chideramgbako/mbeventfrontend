@@ -1,32 +1,52 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ActionBtn from "../components/ActionBtn";
 import logo from "../assets/logo.png";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { loginSchema } from "../utils/formValidator";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const Login = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const redirect = useNavigate();
 
   // Initialize useForm with yupResolver for validation
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm({
     resolver: yupResolver(loginSchema),
   });
-
+  const url =
+    "https://mbeventbackendserver.onrender.com/api/v1/login";
   const onSubmit = async (data) => {
-    setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      console.log("Form Submitted", data);
-      setIsSubmitting(false);
-    }, 2000);
+    try {
+      const result = await axios.post(url, data);
+      console.log(result);
+      if (result.status === 200) {
+        //toast
+        toast.success("Login Successfully ", {
+          position: "top-center",
+        });
+        //redirect to hompeage
+        redirect("/");
+        //store token in localstorage
+        localStorage.setItem("mb-token", result?.data.token);
+        localStorage.setItem("user", result?.data?.user?.fullName);
+        //updating user
+      }
+    } catch (error) {
+      console.log(error);
+      console.log(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || error?.message, {
+        position: "top-center",
+        autoClose: 7000,
+      });
+    }
   };
 
   return (
@@ -83,7 +103,7 @@ const Login = () => {
           content={isSubmitting ? "Signing In..." : "Sign In"}
           type="submit"
           className="specialbtn"
-          disabled={isSubmitting}
+          disable={isSubmitting}
         />
         <h2 className="my-3 fs-6">
           Don't have an account?{" "}
