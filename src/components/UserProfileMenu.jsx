@@ -7,7 +7,7 @@ import {
 import { IoPersonOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 
-const UserProfileMenu = ({setIsLoggedIn}) => {
+const UserProfileMenu = ({ setIsLoggedIn }) => {
   const links = [
     {
       id: 1,
@@ -28,15 +28,14 @@ const UserProfileMenu = ({setIsLoggedIn}) => {
       to: "/error",
     },
   ];
-   const redirect = useNavigate()
-
+  const redirect = useNavigate();
 
   const handleLogout = () => {
-    setIsLoggedIn(false)
-    localStorage.removeItem("mb-token")
-    localStorage.removeItem("user")
+    setIsLoggedIn(false);
+    localStorage.removeItem("mb-token");
+    localStorage.removeItem("user");
     //redirect to login page
-    redirect("/login")
+    redirect("/login");
   };
   return (
     <div
@@ -55,7 +54,10 @@ const UserProfileMenu = ({setIsLoggedIn}) => {
           </Link>
         );
       })}
-      <button onClick={handleLogout} className="w-100 bg-transparent border-0 d-flex gap-2 align-items-center border-bottom border-1 border-secondary-subtle text-decoration-none mb-3 text-secondary pb-2 fs-6">
+      <button
+        onClick={handleLogout}
+        className="w-100 bg-transparent border-0 d-flex gap-2 align-items-center border-bottom border-1 border-secondary-subtle text-decoration-none mb-3 text-secondary pb-2 fs-6"
+      >
         <MdOutlineLogout className="text-danger" />
         logout
       </button>

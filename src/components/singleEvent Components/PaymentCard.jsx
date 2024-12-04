@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 const PaymentCard = () => {
   const [showModal, setShowModal] = useState(false);
-  const token = false;
+  const token = localStorage.getItem("mb-token")
 
   return (
     <div
