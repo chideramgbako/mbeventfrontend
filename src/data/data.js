@@ -4,11 +4,17 @@ export const events = [
     image:
       "https://upload.wikimedia.org/wikipedia/en/7/7c/Iron_Maiden_%28album%29_cover.jpg",
     title: "Iron Maiden World Tour",
-    host: "Iron Maiden",
+    hostedBy: {
+      fullName: "Iron Maiden",
+    },
     category: "Concert",
     location: "Teslim Balogun Stadium, Surulere",
     date: "Aug 30, 2024",
-    tickets: "Regular, VIP",
+    price: {
+      free: true,
+      regular: 0,
+      vip: 0,
+    },
     tags: ["music", "entertainment", "dance"],
   },
   {
@@ -16,11 +22,17 @@ export const events = [
     image:
       "https://images.unsplash.com/photo-1557838923-2985c318be48?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGRpZ2l0YWwlMjBtYXJrZXRpbmclMjBjb3Vyc2V8ZW58MHx8MHx8fDA%3D",
     title: "Digital Marketing Course",
-    host: "John Doe",
+    hostedBy: {
+      fullName: "John Doe",
+    },
     category: "Education",
     location: "Online",
     date: "Oct 30, 2024",
-    tickets: "Regular, VIP",
+    price: {
+      free: false,
+      regular: 3000,
+      vip: 4000,
+    },
     tags: ["marketing", "learning", "money"],
   },
   {
@@ -28,11 +40,17 @@ export const events = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlqPBMftqgpJEncR5bOw8bg2uDPUPN8zwYKg&s",
     title: "Detty December House Party",
-    host: "Party Freaks",
+    hostedBy: {
+      fullName: "Party Freaks",
+    },
     category: "Party",
     location: "Radisson Blu, Lagos, Nigeria",
     date: "Dec 30, 2024",
-    tickets: "Regular, VIP",
+    price: {
+      free: false,
+      regular: 4000,
+      vip: 7000,
+    },
     tags: ["music", "entertainment", "dance"],
   },
   {
@@ -40,11 +58,17 @@ export const events = [
     image:
       "https://images.daznservices.com/di/library/DAZN_News/7c/17/anthony-joshua-vs-daniel-dubois_182o30bviktyu1sljusxi1sh79.jpg?t=-1170182064&w=800",
     title: "Anthony Joshua VS Dubois",
-    host: "World Boxing Federation",
+    hostedBy: {
+      fullName: "Boxing federation",
+    },
     category: "Sports",
     location: "Teslim Balogun Stadium, Surulere",
     date: "July 30, 2024",
-    tickets: "Regular, VIP",
+    price: {
+      free: true,
+      regular: 0,
+      vip: 0,
+    },
     tags: ["boxing", "fight", "entertainment"],
   },
   {
@@ -52,11 +76,17 @@ export const events = [
     image:
       "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHBhcnR5fGVufDB8fDB8fHww",
     title: "Mainland Block Party",
-    host: "Tinzle",
+    hostedBy: {
+      fullName: "Tizzle",
+    },
     category: "Party",
     location: "Downtown, Lagos",
     date: "Dec 24, 2024",
-    tickets: "Regular, VIP",
+    price: {
+      free: false,
+      regular: 6000,
+      vip: 12000,
+    },
     tags: ["music", "entertainment", "dance"],
   },
   {
@@ -64,11 +94,17 @@ export const events = [
     image:
       "https://www.bellanaija.com/wp-content/uploads/2020/12/The-Experience-2020.jpg",
     title: "The Experience 2024",
-    host: "CAN",
+    hostedBy: {
+      fullName: "Can",
+    },
     category: "Concert",
     location: "Teslim Balogun Stadium, Surelere",
     date: "Dec 30, 2024",
-    tickets: "Free",
+    price: {
+      free: true,
+      regular: 0,
+      vip: 0,
+    },
     tags: ["worship", "song", "prayer"],
   },
   {
@@ -76,11 +112,17 @@ export const events = [
     image:
       "https://images.unsplash.com/photo-1687603921109-46401b201195?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8amF2YXNjcmlwdCUyMGNvZGV8ZW58MHx8MHx8fDA%3D",
     title: "Code With Timi",
-    host: "Timi",
+    hostedBy: {
+      fullName: "Timi",
+    },
     category: "Tech",
     location: "online",
     date: "Nov 26, 2024",
-    tickets: "Free",
+    price: {
+      free: true,
+      regular: 0,
+      vip: 0,
+    },
     tags: ["Education", "Code", "Tech"],
   },
 ];

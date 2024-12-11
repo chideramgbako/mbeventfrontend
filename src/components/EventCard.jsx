@@ -3,16 +3,17 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
 import { HiTicket } from "react-icons/hi2";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 const EventCard = ({
   _id,
   image,
   title,
-  host,
   category,
   location,
   date,
-  tickets,
+  hostedBy: { fullName },
+  price,
 }) => {
   return (
     <Link
@@ -26,26 +27,38 @@ const EventCard = ({
           className="rounded-2 w-100"
           loading="lazy"
         />
-        <div className="mt-2 pb-2">
-          <h3 style={{ height: "50px" }} className="my-auto">
+        <div className="mt-2 pb-2 text-capitalize">
+          <h3 style={{ height: "50px" }} className="my-auto fs-5">
             {" "}
             {title}{" "}
           </h3>
           <p className="mb-0">
-            <span className="fw-medium fs-5 mt-3">Host :</span> {host}
+            <span className="fw-medium fs-5 mt-3">Host : {fullName}</span>{" "}
           </p>
           <p className="mb-0">
-            <span className="fw-medium fs-5 mt-3">Category :</span> {category}
+            <span className="fw-medium fs-5 mt-3 text-capitalize">
+              Category :
+            </span>{" "}
+            {category}
           </p>
           <p className="mb-0 fw-medium">
             <FaLocationDot /> {location}{" "}
           </p>
           <p className="mb-0 fw-medium">
-            <FaCalendarAlt /> {date}{" "}
+            <FaCalendarAlt /> {moment(date).format("MMM Do YYYY")}{" "}
           </p>
-          <p className="mb-0 fw-medium">
-            <HiTicket /> {tickets}{" "}
-          </p>
+          {price.free ? (
+            <p className="mb-0 fw-medium">
+              {" "}
+              <HiTicket /> Free
+            </p>
+          ) : (
+            <p className="mb-0 fw-medium">
+              {" "}
+              <HiTicket /> {price.vip > 0 && "VIP"},
+              {price.regular > 0 && "Regular"}
+            </p>
+          )}
         </div>
       </div>
     </Link>

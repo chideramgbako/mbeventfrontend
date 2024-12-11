@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import ActionBtn from "./ActionBtn";
 import check from "../assets/check.png";
 
-const SuccessModal = ({ showModal }) => {
+const SuccessModal = ({ showModal, setShowModal }) => {
   return (
     <div>
       <Modal
@@ -13,6 +13,7 @@ const SuccessModal = ({ showModal }) => {
         className="text-center rounded-2 "
         show={showModal}
         animation={true}
+        onHide={() => setShowModal(false)}
       >
         <Modal.Body>
           <img src={check} alt="" />

@@ -60,10 +60,10 @@ toast.error(error?.response?.data?.message, {
   };
 
   return (
-    <div className="vh-100 d-flex justify-content-center align-items-center py-2 myform container">
+    <div className="vh-100 d-flex justify-content-center align-items-center py-2 myform container ">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="p-3 p-lg-5 shadow-lg rounded-3"
+        className="p-3 p-lg-5 shadow-lg rounded-3 position-relative"
       >
         <Link to="/">
           <img src={logo} alt="logo" className="d-block mx-auto my-2" />
